@@ -1,0 +1,58 @@
+app.controller("getControl_Discussion",function($scope,$http,$interval){
+		$scope.flag=0;
+		$http.get("GetDiscussion").then(function(response)
+		{
+			$scope.my_discussion=response.data.mydiscussion;
+			$scope.length=$scope.my_discussion.length;
+			if($scope.length>0)
+			{
+				document.getElementById("discussionContent").style.display="block";
+			}
+			else
+			{
+				document.getElementById("noDiscussion").style.display="block";
+			}
+		},
+		function(error)
+		{
+			
+		});
+		$scope.nextIndex=function()
+		{
+			if($scope.flag<($scope.length-1))
+			{
+				$scope.flag++;
+			}
+		}
+		$scope.previousIndex=function()
+		{
+			if($scope.flag>0)
+			{
+				$scope.flag--;
+			}
+		}
+		$scope.insertComment=function(name,email)
+		{
+			var text = document.getElementById("userComment").value;
+			$http.post("PostComment","{\"id\":\""+$scope.my_discussion[$scope.flag].id+"\",\"name\":\""+name+"\",\"email\":\""+email+"\",\"text\":\""+text+"\"}").then(function(response)
+			{
+				$scope.mycomment=null;
+			},
+			function(error)
+			{
+				alert("Hello Error");
+			});
+		}
+		$interval(function(){
+			if($scope.my_discussion[$scope.flag]!=undefined)
+			{
+				$http.post("GetComments","{\"id\":\""+$scope.my_discussion[$scope.flag].id+"\"}").then(function(response)
+				{
+					$scope.comments=response.data.mycomments;
+				},
+				function(error){
+					
+				});
+			}
+		},1000);
+	});

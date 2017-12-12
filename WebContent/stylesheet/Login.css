@@ -1,0 +1,87 @@
+.mybackground
+{
+	position: fixed;
+	min-height: 100%;
+	min-width: 100%;
+	width: auto;
+	height: auto;
+	z-index: -100;
+	right: 0;
+	bottom: 0;
+	left: 0;
+}
+.loginform
+{
+	position: absolute;
+	padding-top: 2%;
+	padding-bottom: 2%;
+	padding-left: 3%;
+	padding-right: 3%;
+	top: 20%;
+	left: 35%;
+	background: rgba(  46, 64, 83, .5);
+	color: #566573;
+	width: 30%
+}
+.signup
+{
+	background-color: #283747;
+	color: #fdfefe;
+	font-weight:bold;
+}
+.signup:hover
+{
+	color: #fdfefe;
+	border: solid 1px white;
+}
+.signup:visited
+{
+	color: #fdfefe;
+}
+.login
+{
+	background-color: #ba4a00;
+	color: #fdfefe;
+	font-weight:bold;
+}
+.login:hover
+{
+	color: #fdfefe;
+	border: solid 1px white;
+}
+.login:visited
+{
+	color: #fdfefe;
+}
+.forgetpassword
+{
+	color: yellow;
+	font-weight:bold;
+}
+.forgetpassword:hover
+{
+	color: white;
+}
+.forgetpassword:visited
+{
+	color: yellow;
+}
+table
+{
+	border-collapse: separate;
+	color: white;
+}
+table tr td
+{
+	padding-top: 2%;
+	padding-bottm: 2%;
+}
+a
+{
+	color:  #ecf0f1;
+}
+a:hover
+{
+	text-decoration:none;
+	color: white;
+}
